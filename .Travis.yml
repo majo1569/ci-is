@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - stable
+cache:
+    directories:
+      - node_modules
+
+job:
+  include:
+    - stage: deploy to production
+      script: npm run build
+      
