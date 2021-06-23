@@ -5,18 +5,4 @@ cache:
     directories:
       - node_modules
 
-job:
-  include:
-    - stage: unit tests
-      script: npm test
-    - stage: deploy to production
-      script: npm run build
-      deploy: 
-          provider: heroku 
-          skip_cleanup: true
-          api_key: 83e13b46-97e6-4924-b42e-d8c301b87acc
-          strategy: git
-          app: ci-is
-          on:
-            repo: majo1569/ci-is
-            branch: master 
+
