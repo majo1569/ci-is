@@ -1,0 +1,23 @@
+language: node_js
+node_js: 
+  - "stable"
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: unit tests
+      script: npm test
+    - stage: deploy
+      script: npm run build 
+      deploy: 
+        provider: heroku
+        api_key: b5658fe9-7fa1-431f-bd0f-8a699b2d9e2d
+        strategy: git 
+        app: react-ci
+        on:
+            repo: majo1569/react-ci
+            branch: main
+notifications:
+  slack: naksinc:3gS2KmrT2PJDARWHqAmdK3IC 
